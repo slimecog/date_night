@@ -1,10 +1,12 @@
 class Node
-  attr_reader :data
+  attr_reader   :rank,
+                :title
   attr_accessor :left_next_node,
                 :right_next_node
 
-  def initialize(data)
-    @data            = data
+  def initialize(rank, title)
+    @rank            = rank
+    @title           = title
     @left_next_node  = nil
     @right_next_node = nil
   end
