@@ -1,6 +1,24 @@
 {
   "Unit Tests": {
     "coverage": {
+      "/Users/cameron/turing/date_night/lib/binary_search_tree.rb": [
+        1,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/cameron/turing/date_night/lib/node.rb": [
         1,
         1,
@@ -9,14 +27,14 @@
         null,
         null,
         1,
-        11,
-        11,
-        11,
-        11,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ]
     },
-    "timestamp": 1512425592
+    "timestamp": 1512427319
   }
 }
