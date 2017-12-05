@@ -19,4 +19,57 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal "Hannibal Buress: Animal Furnace", bst.root.title
   end
 
+  def test_it_can_insert_left
+    bst = BinarySearchTree.new
+
+    bst.insert(50, "Hannibal Buress: Animal Furnace")
+    bst.insert(40, "Another Movie")
+
+    assert_equal 50, bst.root.rank
+    assert_equal "Hannibal Buress: Animal Furnace", bst.root.title
+    assert_equal 40, bst.root.left_next_node.rank
+    assert_equal "Another Movie", bst.root.left_next_node.title
+  end
+
+  def test_it_can_insert_right
+    bst = BinarySearchTree.new
+
+    bst.insert(50, "Hannibal Buress: Animal Furnace")
+    bst.insert(60, "Another Movie")
+
+    assert_equal 50, bst.root.rank
+    assert_equal "Hannibal Buress: Animal Furnace", bst.root.title
+    assert_equal 60, bst.root.right_next_node.rank
+    assert_equal "Another Movie", bst.root.right_next_node.title
+  end
+
+  def test_it_can_add_left_and_right_accurately
+    bst = BinarySearchTree.new
+
+    bst.insert(50, "Hannibal Buress: Animal Furnace")
+    bst.insert(40, "Something")
+    bst.insert(60, "Another Movie")
+    bst.insert(45, "Middle")
+    bst.insert(42, "left right left")
+    bst.insert(70, "right right")
+    bst.insert(65, "right right left")
+    bst.insert(59, "right left")
+
+    assert_equal 50, bst.root.rank
+    assert_equal "Hannibal Buress: Animal Furnace", bst.root.title
+    assert_equal 40, bst.root.left_next_node.rank
+    assert_equal "Something", bst.root.left_next_node.title
+    assert_equal 60, bst.root.right_next_node.rank
+    assert_equal "Another Movie", bst.root.right_next_node.title
+    assert_equal 45, bst.root.left_next_node.right_next_node.rank
+    assert_equal "Middle", bst.root.left_next_node.right_next_node.title
+    assert_equal 42, bst.root.left_next_node.right_next_node.left_next_node.rank
+    assert_equal "left right left", bst.root.left_next_node.right_next_node.left_next_node.title
+    assert_equal 70, bst.root.right_next_node.right_next_node.rank
+    assert_equal "right right", bst.root.right_next_node.right_next_node.title
+    assert_equal 65, bst.root.right_next_node.right_next_node.left_next_node.rank
+    assert_equal "right right left", bst.root.right_next_node.right_next_node.left_next_node.title
+    assert_equal 59, bst.root.right_next_node.left_next_node.rank
+    assert_equal "right left", bst.root.right_next_node.left_next_node.title
+  end
 end
