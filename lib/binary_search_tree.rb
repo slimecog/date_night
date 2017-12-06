@@ -8,7 +8,7 @@ class BinarySearchTree
   def insert(rank, title)
     if @root.nil?
       @root = Node.new(rank, title)
-      # return @root.depth
+      return 0
     else @root.insert(rank, title)
     end
   end

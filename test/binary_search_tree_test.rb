@@ -74,22 +74,23 @@ class BinarySearchTreeTest < Minitest::Test
   end
 
   def test_insertion_returns_depth_level
-    skip
     bst = BinarySearchTree.new
 
     expected = bst.insert(50, "Hannibal Buress: Animal Furnace")
     expected1 = bst.insert(40, "Something")
     expected2 = bst.insert(60, "Another Movie")
     expected3 = bst.insert(45, "Middle")
-    bst.insert(42, "left right left")
-    bst.insert(70, "right right")
-    bst.insert(65, "right right left")
-    bst.insert(59, "right left")
+    expected4 = bst.insert(42, "left right left")
+    expected5 = bst.insert(70, "right right")
+    expected6 = bst.insert(65, "right right left")
 
     assert_equal 0, expected
     assert_equal 1, expected1
     assert_equal 1, expected2
     assert_equal 2, expected3
+    assert_equal 3, expected4
+    assert_equal 2, expected5
+    assert_equal 3, expected6
   end
 
   def test_it_returns_true_or_false_based_on_whether_or_not_rank_is_in_tree
