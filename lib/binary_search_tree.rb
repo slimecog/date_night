@@ -28,7 +28,7 @@ class BinarySearchTree
     if @root.nil?
       nil
     elsif @root.rank == rank
-      0
+      return 0
     elsif @root.left_next_node.nil? && @root.right_next_node.nil?
       nil
     else @root.depth_of(rank)
