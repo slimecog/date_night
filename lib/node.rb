@@ -24,16 +24,22 @@ class Node
   def left_insert(rank, title)
     if @left_next_node.nil?
       @left_next_node = Node.new(rank, title)
-      # return depth += 1
-    else @left_next_node.insert(rank, title)
+      # if @left_next_node.depth < 2
+      #   @left_next_node.depth = 1
+      # end
+    else #@left_next_node.depth += 1
+      @left_next_node.insert(rank, title)
     end
   end
 
   def right_insert(rank, title)
     if @right_next_node.nil?
       @right_next_node = Node.new(rank, title)
-      # return depth += 1
-    else @right_next_node.insert(rank, title)
+      # if @right_next_node < 2
+      #   @right_next_node.depth = 1
+      # end
+    else #@right_next_node.depth += 1
+      @right_next_node.insert(rank, title)
     end
   end
 end
