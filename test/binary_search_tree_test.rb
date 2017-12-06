@@ -113,4 +113,48 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal "true", bst.include?(70)
     assert_equal "false", bst.include?(35)
   end
+
+  def test_depth_of_returns_depth_of_node
+    bst = BinarySearchTree.new
+
+    bst.insert(61, "Bill & Ted's Excellent Adventure")
+    assert_equal 0, bst.depth_of(61)
+    assert_nil bst.depth_of(100)
+
+    bst.insert(16, "Johnny English")
+    assert_equal 1, bst.depth_of(16)
+
+    bst.insert(92, "Sharknado 3")
+    assert_equal 1, bst.depth_of(92)
+  end
+
+  def test_max_returns_maximum_ranked_movie_as_a_hash
+    bst = BinarySearchTree.new
+
+    assert_nil bst.max
+
+    bst.insert(61, "Bill & Ted's Excellent Adventure")
+    assert_equal ({"Bill & Ted's Excellent Adventure" => 61}), bst.max
+
+    bst.insert(16, "Johnny English")
+    bst.insert(92, "Sharknado 3")
+    bst.insert(50, "Hannibal Buress: Animal Furnace")
+
+    assert_equal ({"Sharknado 3" => 92}), bst.max
+  end
+
+  def test_min_returns_minimum_ranked_movie_as_a_hash
+    bst = BinarySearchTree.new
+
+    assert_nil bst.min
+
+    bst.insert(61, "Bill & Ted's Excellent Adventure")
+    assert_equal ({"Bill & Ted's Excellent Adventure" => 61}), bst.min
+
+    bst.insert(16, "Johnny English")
+    bst.insert(92, "Sharknado 3")
+    bst.insert(50, "Hannibal Buress: Animal Furnace")
+
+    assert_equal ({"Johnny English" => 16}), bst.min
+  end
 end

@@ -23,4 +23,29 @@ class BinarySearchTree
     else @root.include?(rank)
     end
   end
+
+  def depth_of(rank)
+    if @root.nil?
+      nil
+    elsif @root.rank == rank
+      0
+    elsif @root.left_next_node.nil? && @root.right_next_node.nil?
+      nil
+    else @root.depth_of(rank)
+    end
+  end
+
+  def max
+    if @root.nil?
+      nil
+    else @root.max
+    end
+  end
+
+  def min
+    if @root.nil?
+      nil
+    else @root.min
+    end
+  end
 end

@@ -58,4 +58,10 @@ class NodeTest < Minitest::Test
     assert_nil node2.left_next_node
     assert_nil node2.right_next_node
   end
+
+  def test_create_hash_creates_hash_of_title_keys_with_rank_values
+    node = Node.new(61, "Bill & Ted's Excellent Adventure")
+
+    assert_equal ({"Bill & Ted's Excellent Adventure" => 61}), node.create_hash
+  end
 end

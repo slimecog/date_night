@@ -50,4 +50,34 @@ class Node
       @left_next_node.include?(rank)
     end
   end
+
+  def depth_of(rank)
+    if @rank == rank
+      @depth
+    elsif @left_next_node.nil? && @right_next_node.nil?
+      nil
+    elsif @left_next_node.nil? || @rank < rank
+      @right_next_node.depth_of(rank)
+    elsif @right_next_node.nil? || @rank > rank
+      @left_next_node.depth_of(rank)
+    end
+  end
+
+  def create_hash
+    {@title => @rank}
+  end
+
+  def max
+    if @right_next_node.nil?
+      create_hash
+    else @right_next_node.max
+    end
+  end
+
+  def min
+    if @left_next_node.nil?
+      create_hash
+    else @left_next_node.min
+    end
+  end
 end
