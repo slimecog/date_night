@@ -105,6 +105,11 @@ class BinarySearchTreeTest < Minitest::Test
     bst.insert(16, "Johnny English")
     assert_equal "true", bst.include?(16)
 
+    bst.insert(42, "left right left")
+    bst.insert(70, "right right")
 
+    assert_equal "true", bst.include?(42)
+    assert_equal "true", bst.include?(70)
+    assert_equal "false", bst.include?(35)
   end
 end

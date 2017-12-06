@@ -42,4 +42,16 @@ class Node
       @right_next_node.insert(rank, title)
     end
   end
+
+  def include?(rank)
+    if @rank == rank
+      "true"
+    elsif @left_next_node.nil? && @right_next_node.nil?
+      "false"
+    elsif @left_next_node.nil? || @rank < rank
+      @right_next_node.include?(rank)
+    elsif @right_next_node.nil? || @rank > rank
+      @left_next_node.include?(rank)
+    end
+  end
 end
