@@ -80,4 +80,21 @@ class Node
     else @left_next_node.min
     end
   end
+
+  def min_sort
+    sorted_array = []
+    current = @left_next_node
+    until current.left_next_node.nil?
+      sorted_array << create_hash
+      current = @left_next_node
+    end
+  end
+
+  def sort
+    sorted_array = []
+    until self.min.nil?
+      sorted_array << self.min
+    end
+    sorted_array
+  end
 end

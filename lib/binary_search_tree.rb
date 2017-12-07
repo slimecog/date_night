@@ -49,12 +49,12 @@ class BinarySearchTree
     end
   end
 
-  # def sort
-  #   if @root.nil?
-  #     nil
-  #   else @root.sort
-  #   end
-  # end
+  def sort
+    if @root.nil?
+      nil
+    else @root.sort
+    end
+  end
 
   def load(input)
     list_length_total = 0
