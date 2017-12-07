@@ -48,4 +48,22 @@ class BinarySearchTree
     else @root.min
     end
   end
+
+  # def sort
+  #   if @root.nil?
+  #     nil
+  #   else @root.sort
+  #   end
+  # end
+
+  def load(input)
+    list_length_total = 0
+    input = "./data/" + input
+    File.open(input, "r").each do |line|
+      list_length_total += 1
+      each_line = line.chomp.split(", ")
+      insert(each_line[0].to_i, each_line[1].to_s)
+    end
+    list_length_total
+  end
 end

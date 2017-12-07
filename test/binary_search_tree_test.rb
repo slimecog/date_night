@@ -157,4 +157,33 @@ class BinarySearchTreeTest < Minitest::Test
 
     assert_equal ({"Johnny English" => 16}), bst.min
   end
+
+  def test_sort_returns_array_of_hashes_with_title_keys_and_rank_values
+    skip
+    bst = BinarySearchTree.new
+
+    bst.insert(61, "Bill & Ted's Excellent Adventure")
+    assert_equal ([{"Bill & Ted's Excellent Adventure"=>61}]), bst.sort
+    bst.insert(16, "Johnny English")
+    bst.insert(92, "Sharknado 3")
+    bst.insert(50, "Hannibal Buress: Animal Furnace")
+
+    result = ([{"Johnny English"=>16},
+              {"Hannibal Buress: Animal Furnace"=>50},
+              {"Bill & Ted's Excellent Adventure"=>61},
+              {"Sharknado 3"=>92}])
+
+    assert_equal result, bst.sort
+  end
+
+  def test_load_loads_from_file_and_inserts_into_tree_and_returns_number_loaded
+    bst = BinarySearchTree.new
+
+    assert_equal 100, bst.load("movies.txt")
+
+    bst.load("movies.txt")
+
+    assert_equal ({"Cruel Intentions" => 0}), bst.min
+    assert_equal ({"The Little Engine That Could" => 100}), bst.max
+  end
 end
